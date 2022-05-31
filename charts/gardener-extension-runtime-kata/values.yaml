@@ -13,12 +13,7 @@ replicaCount: 1
 ignoreResources: false 
 
 controllers:
-  lifecycle:
-    concurrentSyncs: 5
-  healthcheck:
-    concurrentSyncs: 5
   ignoreOperationAnnotation: false
-
 
 webhookConfig:
   servicePort: 443
