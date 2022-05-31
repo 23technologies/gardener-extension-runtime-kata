@@ -52,7 +52,7 @@ rules:
   resources:
   - leases
   resourceNames:
-  - runtime-kata-leader-election
+  - extension-runtime-kata-leader-election
   verbs:
   - get
   - watch
