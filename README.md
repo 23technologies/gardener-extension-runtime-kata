@@ -15,7 +15,7 @@ Please find more information regarding the extensibility concepts and a detailed
 
 - [Gardener Extension for Katacontainers](#gardener-extension-for-katacontainers)
 - [What does this package provide?](#what-does-this-package-provide)
-- [Wait! How does this differ from [kata-deploy](https://github.com/kata-containers/kata-containers/tree/main/tools/packaging/kata-deploy)?](#wait-how-does-this-differ-from-kata-deployhttpsgithubcomkata-containerskata-containerstreemaintoolspackagingkata-deploy)
+- [Wait! How does this differ from kata-deploy?](#wait-how-does-this-differ-from-kata-deploy)
 - [Current limitations](#current-limitations)
 - [How to...](#how-to)
     - [Use it as a gardener operator](#use-it-as-a-gardener-operator)
@@ -26,9 +26,9 @@ Please find more information regarding the extensibility concepts and a detailed
 Generally, this extension should enable using katacontainers as container runtime within `Shoot` clusters.
 Thus, you can isolate your workload easily into qemu/firecracker/cloudhypervisor VMs on the nodes, when this extension is installed.
 
-# Wait! How does this differ from [kata-deploy](https://github.com/kata-containers/kata-containers/tree/main/tools/packaging/kata-deploy)?
+# Wait! How does this differ from kata-deploy?
 Actually, it doesn't.
-Internally, the extension is using the same mechanism as provided by kata-deploy.
+Internally, the extension is using the same mechanism as provided by [kata-deploy](https://github.com/kata-containers/kata-containers/tree/main/tools/packaging/kata-deploy).
 However, when it comes to using katacontainers in combination with firecracker VMs, the machine image needs to be tweaked a bit. 
 See also this [how-to](https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-use-kata-containers-with-firecracker.md) to get an idea of what needs to be configured for the usage of katacontainers with firecracker.
 This configuration overhead is handled by this extension.
