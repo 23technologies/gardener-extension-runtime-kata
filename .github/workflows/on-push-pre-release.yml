@@ -27,7 +27,7 @@ jobs:
       with:
         tag_name: ${{ github.ref_name }}
         body: |-
-          # [gardener-extension-shoot-flux] ${{ github.ref_name }}
+          # [gardener-extension-runtime-kata] ${{ github.ref_name }}
         prerelease: true
         files: |-
             controller-registration.yaml
