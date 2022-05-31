@@ -39,19 +39,19 @@ Moreover, the controller deploys some helm-charts containing the configuration a
 # Current limitations
 Generally, the limitations are two-fold.
 First, the cloud service provider your `Shoot` is running on needs to support nested virtualization for katacontainers to work properly.
-On the azure cloud, nested virtualization is enabled for various machine types.
-As our development and testing environment was limited to `Shoots` hosted on azure, the extension controller will only do something meaningful, when `Shoots` are spawned on azure. 
+On the azure cloud, nested virtualization is enabled for various [machine types](https://docs.microsoft.com/en-us/azure/virtual-machines/acu).
+As our development and testing environment was limited to `Shoots` hosted on Azure, the extension controller will only do something meaningful, when `Shoots` are spawned on Azure.
 Second, the implementation was only tested for Ubuntu as machine image.
 Thus, the controller will idle, when other machine images are selected.
 Of course, the support for other machine images can be implemented.
-However, this is a future topic and this package should be considere as proof of concept.
+However, this is a future topic, and this package should be considered as proof of concept.
 
 # How to...
 
 ## Use it as a gardener operator
 Of course, you need to apply the `controller-registration` resources to the garden cluster first.
 You can find the corresponding yaml-files in our [releases](https://github.com/23technologies/gardener-extension-runtime-kata/releases).
-Moreover, you will need to modify your azure-cloudprofile so that it contains the following configuration:
+Moreover, you will need to modify your Azure-cloudprofile so that it contains the following configuration:
 ``` yaml
 ...
   machineImages:
