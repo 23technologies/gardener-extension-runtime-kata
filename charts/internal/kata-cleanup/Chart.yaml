@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: kata-cleanup
+description: This helmchart cleans up node labels etc. used for kata containers 
+
+# This is the chart version.
+version: 0.0.1 

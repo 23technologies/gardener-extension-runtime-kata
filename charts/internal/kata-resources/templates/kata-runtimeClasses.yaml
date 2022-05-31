@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+kind: RuntimeClass
+apiVersion: node.k8s.io/v1
+metadata:
+    name: kata-qemu
+handler: kata-qemu
+overhead:
+    podFixed:
+        memory: "160Mi"
+        cpu: "250m"
+scheduling:
+  nodeSelector:
+    katacontainers.io/kata-runtime: "true"
+---
+kind: RuntimeClass
+apiVersion: node.k8s.io/v1
+metadata:
+    name: kata-clh
+handler: kata-clh
+overhead:
+    podFixed:
+        memory: "130Mi"
+        cpu: "250m"
+scheduling:
+  nodeSelector:
+    katacontainers.io/kata-runtime: "true"
+---
+kind: RuntimeClass
+apiVersion: node.k8s.io/v1
+metadata:
+    name: kata-fc
+handler: kata-fc
+overhead:
+    podFixed:
+        memory: "130Mi"
+        cpu: "250m"
+scheduling:
+  nodeSelector:
+    katacontainers.io/kata-runtime: "true"

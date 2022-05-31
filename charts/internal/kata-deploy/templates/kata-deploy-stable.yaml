@@ -1,0 +1,92 @@
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: kata-deploy
+  namespace: kube-system
+spec:
+  selector:
+      matchLabels:
+        name: kata-deploy
+  template:
+    metadata:
+        labels:
+          name: kata-deploy
+    spec:
+      serviceAccountName: kata-label-node
+      containers:
+      - name: kube-kata
+        image: quay.io/kata-containers/kata-deploy:stable
+        imagePullPolicy: Always
+        lifecycle:
+          preStop:
+            exec:
+              command: ["bash", "-c", "/opt/kata-artifacts/scripts/kata-deploy.sh cleanup"]
+{{- if .Values.prepareKataFc }}
+        command:
+          - bash
+          - -c
+          - |
+            /scripts-dir/prepare-kata-fc.sh
+            /opt/kata-artifacts/scripts/kata-deploy.sh install
+{{- else }}
+        command: [ "bash", "-c", "/opt/kata-artifacts/scripts/kata-deploy.sh install" ]
+{{- end }}
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: crio-conf
+          mountPath: /etc/crio/
+        - name: containerd-conf
+          mountPath: /etc/containerd/
+        - name: kata-artifacts
+          mountPath: /opt/kata/
+        - name: dbus
+          mountPath: /var/run/dbus
+        - name: systemd
+          mountPath: /run/systemd
+        - name: local-bin
+          mountPath: /usr/local/bin/
+{{- if .Values.prepareKataFc }}
+        - name: scripts-vol
+          mountPath: /scripts-dir
+{{- end }}
+      volumes:
+        - name: crio-conf
+          hostPath:
+            path: /etc/crio/
+        - name: containerd-conf
+          hostPath:
+            path: /etc/containerd/
+        - name: kata-artifacts
+          hostPath:
+            path: /opt/kata/
+            type: DirectoryOrCreate
+        - name: dbus
+          hostPath:
+            path: /var/run/dbus
+        - name: systemd
+          hostPath:
+            path: /run/systemd
+        - name: local-bin
+          hostPath:
+            path: /usr/local/bin/
+{{- if .Values.prepareKataFc }}
+        - name: scripts-vol
+          configMap:
+            name: scripts-configmap
+            defaultMode: 0777
+{{- end }}
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate

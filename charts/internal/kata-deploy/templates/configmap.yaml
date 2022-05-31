@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scripts-configmap
+  namespace: kube-system
+data:
+{{ (.Files.Glob "scripts/prepare-kata-fc.sh").AsConfig | indent 2 }}
+{{ (.Files.Glob "scripts/process-config.py").AsConfig | indent 2 }}
