@@ -58,13 +58,13 @@ Moreover, you will need to modify your Azure-cloudprofile so that it contains th
 ...
   machineImages:
   - name: ubuntu
-	versions:
-	- cri:
-	  - containerRuntimes:
-		- type: kata
-		name: containerd
-	  - name: docker
-	  version: 18.4.20210415
+    versions:
+    - cri:
+      - containerRuntimes:
+        - type: kata
+        name: containerd
+      - name: docker
+      version: 18.4.20210415
 ...
 ```
 
