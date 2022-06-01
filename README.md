@@ -59,10 +59,10 @@ Moreover, you will need to modify your Azure-cloudprofile so that it contains th
     versions:
     - cri:
       - containerRuntimes:
-        - type: runtime-kata
+        - type: kata
         name: containerd
       - name: docker
       version: 18.4.20210415
 ...
 ```
-Now you should be able to select the `runtime-kata` from the Gardener dashboard during shoot creation or simply specify the corresponding container runtime in your `Shoot.Spec`.
+Now you should be able to select `kata` as additional runtime from the Gardener dashboard during shoot creation or simply specify the corresponding container runtime in your `Shoot.Spec`.

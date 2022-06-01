@@ -37,6 +37,6 @@ func AddToManager(mgr manager.Manager) error {
 		FinalizerSuffix:   "extension-runtime-kata",
 		Resync:            60 * time.Minute,
 		Predicates:        containerruntime.DefaultPredicates(DefaultAddOptions.IgnoreOperationAnnotation),
-		Type:              "runtime-kata",
+		Type:              "kata",
 	})
 }

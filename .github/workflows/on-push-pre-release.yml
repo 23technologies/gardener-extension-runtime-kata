@@ -17,9 +17,9 @@ jobs:
     - name: Create controller-registration.yaml
       run: |-
           vendor/github.com/gardener/gardener/hack/generate-controller-registration.sh runtime-kata charts/gardener-extension-runtime-kata ${{ github.ref_name }} controller-registration.yaml \
-          ContainerRuntime:runtime-kata
+          ContainerRuntime:kata
           vendor/github.com/gardener/gardener/hack/generate-controller-registration.sh runtime-kata charts/gardener-extension-runtime-kata ${{ github.ref_name }}-rc.${{ github.sha }} rc-controller-registration.yaml \
-           ContainerRuntime:runtime-kata
+           ContainerRuntime:kata
     - name: Create Release
       uses: softprops/action-gh-release@v1
       env:
