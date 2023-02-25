@@ -344,7 +344,7 @@ golang.org/x/net/idna
 ## explicit
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
-# golang.org/x/sys v0.0.0-20220325203850-36772127a21f
+# golang.org/x/sys v0.1.0
 ## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/execabs
