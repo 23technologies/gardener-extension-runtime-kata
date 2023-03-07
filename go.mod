@@ -22,11 +22,9 @@ require (
 	github.com/stretchr/testify v1.7.1 // indirect
 	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
-	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
-	golang.org/x/sys v0.0.0-20220325203850-36772127a21f // indirect
-	golang.org/x/term v0.0.0-20220411215600-e5f449aeb171 // indirect
-	golang.org/x/tools v0.1.9
+	golang.org/x/tools v0.1.12
 	k8s.io/apimachinery v0.23.5
 	k8s.io/code-generator v0.23.5
 	k8s.io/component-base v0.23.5
